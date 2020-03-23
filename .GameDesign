@@ -1,0 +1,8 @@
+### Aegis Assault Game Design ###
+1. Rail Shooter
+	a. Players	- move horizontal/vertical
+	b. Camera	- moves on a rail/path and limits player movement
+	c. Enemies	- flies on path or stationary; might shoot
+2. Player Experience	- chaotic
+3. Core Mechanics		- dodge and shoot
+2. Core Game Loop		- get as far as possible without dying to obtain highest score; start from beginning when died
