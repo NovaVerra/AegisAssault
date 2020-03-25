@@ -6,12 +6,21 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerController : MonoBehaviour
 {
 	/** Game Configuration */
+	/** Dictates how fast the ship moves based on user input */
 	[Tooltip("in ms^-1")][SerializeField]
-	float	MovementSpeed = 4f;
-	[SerializeField]
-	float	X_Range = 10f;
-	[SerializeField]
-	float	Y_Range = 6.5f;
+	float	MovementSpeed = 15f;
+
+	/** Range for ship movement relative to camera */
+	[SerializeField] float	X_Range = 10f;
+	[SerializeField] float	Y_Range = 6.5f;
+	
+	/** Relationship between ship position and pitch */
+	[SerializeField] float	PositionPitchFactor = 5f;
+	
+	/** Element that gives the ship a more realistic feeling when pitch/yaw/rolling */
+	[SerializeField] float	InputMovementAmplifier = 25f;
+
+	float	X_Axis, Y_Axis;
 
 	// Start is called before the first frame update
 	void	Start()
@@ -29,27 +38,43 @@ public class PlayerController : MonoBehaviour
 	void	ProcessTransform()
 	{
 		/** Read and bind user input */
-		float	X_Axis = CrossPlatformInputManager.GetAxis("Horizontal");
-		float	Y_Axis = CrossPlatformInputManager.GetAxis("Vertical");
+		X_Axis = CrossPlatformInputManager.GetAxis("Horizontal");
+		Y_Axis = CrossPlatformInputManager.GetAxis("Vertical");
 	
 		/** Calculating offset */
 		float	X_Offset = X_Axis * MovementSpeed * Time.deltaTime;
 		float	Y_Offset = Y_Axis * MovementSpeed * Time.deltaTime;
 	
 		/** Calculating new position of ship */
-		float	X_NewVector = transform.localPosition.x + X_Offset;
-		float	Y_NewVector = transform.localPosition.y + Y_Offset;
+		float	X_NewPos = transform.localPosition.x + X_Offset;
+		float	Y_NewPos = transform.localPosition.y + Y_Offset;
 	
 		/** Restricting the movement within camera bounds */
-		X_NewVector = Mathf.Clamp(X_NewVector, -X_Range, X_Range);
-		Y_NewVector = Mathf.Clamp(Y_NewVector, -Y_Range, Y_Range);
+		X_NewPos = Mathf.Clamp(X_NewPos, -X_Range, X_Range);
+		Y_NewPos = Mathf.Clamp(Y_NewPos, -Y_Range, Y_Range);
 
 		/** Moving the ship */
-		transform.localPosition = new Vector3(X_NewVector, Y_NewVector, transform.localPosition.z);
+		transform.localPosition = new Vector3(X_NewPos, Y_NewPos, transform.localPosition.z);
 	}
 	
 	void	ProcessRotation()
 	{
-		transform.localRotation = Quaternion.Euler(-30f, 30f, 0f);
+		/** Rotation set that is relative to ship position */
+		float	PitchAtPos = transform.localPosition.y * (-PositionPitchFactor);
+		float	YawAtPos = transform.localPosition.x * PositionPitchFactor;
+		float	RollAtPos = transform.localPosition.x;
+	
+		/** Rotation set that is amplified by user input */
+		float	PitchWithInputAmplifier = (-Y_Axis) * InputMovementAmplifier;
+		float	YawWithInputAmplifier = X_Axis * InputMovementAmplifier;
+		float	RollWithInputAmplifier = (-X_Axis) * InputMovementAmplifier;
+
+		/** Compounding rotation effects */
+		float	Pitch = PitchAtPos + PitchWithInputAmplifier;
+		float	Yaw = YawAtPos + YawWithInputAmplifier;
+		float	Roll = RollAtPos + RollWithInputAmplifier;
+
+		/** Set rotation */
+		transform.localRotation = Quaternion.Euler(Pitch, Yaw, Roll);
 	}
 }
