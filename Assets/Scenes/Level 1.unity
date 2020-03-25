@@ -139,10 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301832b05f1944fd68a8e85bc736278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 15
+  MovementSpeed: 10
   X_Range: 10
   Y_Range: 6.5
   PositionPitchFactor: 5
+  InputMovementAmplifier: 25
 --- !u!1 &307174946
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737147459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33, y: 0, z: 8}
+  m_LocalPosition: {x: 35.2, y: -91.5, z: -63.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1488360545}
@@ -622,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuit: {fileID: 1488360546}
-  lookAheadForTargetOffset: 5
+  lookAheadForTargetOffset: 1
   lookAheadForTargetFactor: 0.1
   lookAheadForSpeedOffset: 10
   lookAheadForSpeedFactor: 0.2
@@ -653,7 +654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357183390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 493.8, y: 0, z: 95}
+  m_LocalPosition: {x: 503.19, y: -22.43, z: 92.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1488360545}
