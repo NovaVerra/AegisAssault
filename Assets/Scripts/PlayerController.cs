@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour
 		/** Rotation set that is relative to ship position */
 		float	PitchAtPos = transform.localPosition.y * (-PositionPitchFactor);
 		float	YawAtPos = transform.localPosition.x * PositionPitchFactor;
-		float	RollAtPos = transform.localPosition.x;
 	
 		/** Rotation set that is amplified by user input */
 		float	PitchWithInputAmplifier = (-Y_Axis) * InputMovementAmplifier;
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
 		/** Compounding rotation effects */
 		float	Pitch = PitchAtPos + PitchWithInputAmplifier;
 		float	Yaw = YawAtPos + YawWithInputAmplifier;
-		float	Roll = RollAtPos + RollWithInputAmplifier;
+		float	Roll = RollWithInputAmplifier;
 
 		/** Set rotation */
 		transform.localRotation = Quaternion.Euler(Pitch, Yaw, Roll);
