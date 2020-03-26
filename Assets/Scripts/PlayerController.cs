@@ -28,6 +28,16 @@ public class PlayerController : MonoBehaviour
 
 	}
 
+	void	OnCollisionEnter(Collision CollisionEvent)
+	{
+		print("Collision Occurred");
+	}
+
+	void	OnTriggerEnter(Collider TriggerEvent)
+	{
+		print("Triggered Event");
+	}
+
 	// Update is called once per frame
 	void	Update()
 	{
