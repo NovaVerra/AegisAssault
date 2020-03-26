@@ -6,12 +6,12 @@ using UnityEngine;
 public class SceneLoader : MonoBehaviour
 {
 	// Start is called before the first frame update
-	void Start()
+	void	Start()
 	{
 		Invoke("LoadGame", 1f);
 	}
 
-	void			LoadGame()
+	void	LoadGame()
 	{
 		SceneManager.LoadScene(1);
 	}
