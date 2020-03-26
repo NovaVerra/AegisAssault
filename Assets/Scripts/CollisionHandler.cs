@@ -1,20 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-	// Start is called before the first frame update
-	void Start()
-	{
-		
-	}
+	[Tooltip("In seconds")][SerializeField]
+	float		LevelLoadDelay = 2f;
 
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
+	[Tooltip("Particles Effect Prefab")][SerializeField]
+	GameObject	DeathFX;
 
 	void	OnTriggerEnter(Collider TriggerEvent)
 	{
@@ -25,5 +20,12 @@ public class CollisionHandler : MonoBehaviour
 	void	StartDeathSequence()
 	{
 		gameObject.SendMessage("DisableControls");
+		DeathFX.SetActive(true);
+		Invoke("ReloadScene", LevelLoadDelay);
+	}
+
+	void	ReloadScene()	/** String rederence */
+	{
+		SceneManager.LoadScene(1);
 	}
 }

@@ -5,6 +5,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
+	// TODO why game speed changes?
+
 	/** Game Configuration */
 	bool	b_ControlActive = true;
 
