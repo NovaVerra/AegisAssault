@@ -122,6 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38405722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1582050489776229126, guid: 192b7fe2500f5e0449f21c651bc0474c,
+    type: 3}
+  m_PrefabInstance: {fileID: 768164873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &102237699
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +274,8 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
-  ScorePerHit: 100
+  Hits: 10
+  ScorePerKill: 12
 --- !u!1001 &141788623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,7 +378,8 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
-  ScorePerHit: 12
+  Hits: 10
+  ScorePerKill: 12
 --- !u!1 &496720451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013828802630, guid: d39401e2891b1e4439d7839a3a24b3f6,
@@ -399,7 +407,8 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
-  ScorePerHit: 12
+  Hits: 10
+  ScorePerKill: 12
 --- !u!1 &524487617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,6 +5385,18 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 211117276, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
+      propertyPath: LaserBeams.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 211117276, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
+      propertyPath: LaserBeams.Array.data[0]
+      value: 
+      objectReference: {fileID: 1661097499}
+    - target: {fileID: 211117276, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
+      propertyPath: LaserBeams.Array.data[1]
+      value: 
+      objectReference: {fileID: 38405722}
     - target: {fileID: 271225684, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
       propertyPath: CollisionModule.enabled
       value: 1
@@ -5745,7 +5766,8 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
-  ScorePerHit: 12
+  Hits: 10
+  ScorePerKill: 12
 --- !u!1 &1253205533
 GameObject:
   m_ObjectHideFlags: 0
@@ -5926,7 +5948,14 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
-  ScorePerHit: 12
+  Hits: 10
+  ScorePerKill: 12
+--- !u!1 &1661097499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 271225683, guid: 192b7fe2500f5e0449f21c651bc0474c,
+    type: 3}
+  m_PrefabInstance: {fileID: 768164873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1706638293
 GameObject:
   m_ObjectHideFlags: 0
