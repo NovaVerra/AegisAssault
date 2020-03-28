@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 	// TODO why game speed changes?
 
 	/** Game Configuration */
-	bool	b_ControlActive = true;
+	bool	b_IsControlActive = true;
+	bool	b_IsFiring = true;
 
 	[Header("Speed & Range")]
 	/** Dictates how fast the ship moves based on user input */
@@ -30,25 +31,29 @@ public class PlayerController : MonoBehaviour
 
 	float	X_Axis, Y_Axis;
 
+	[SerializeField] GameObject[]	LaserBeams;
+
 	// Start is called before the first frame update
 	void	Start()
 	{
-		b_ControlActive = true;
+		b_IsControlActive = true;
+		b_IsFiring = true;
 	}
 
 	// Update is called once per frame
 	void	Update()
 	{
-		if (b_ControlActive)
+		if (b_IsControlActive)
 		{
 			ProcessTransform();
 			ProcessRotation();
+			ProcessFiring();
 		}
 	}
 
 	void	DisableControls()	/** Called by string reference */
 	{
-		b_ControlActive = false;
+		b_IsControlActive = false;
 	}
 
 	void	ProcessTransform()
@@ -91,5 +96,33 @@ public class PlayerController : MonoBehaviour
 
 		/** Set rotation */
 		transform.localRotation = Quaternion.Euler(Pitch, Yaw, Roll);
+	}
+
+	void	ProcessFiring()
+	{
+		if (CrossPlatformInputManager.GetButton("Fire"))
+		{
+			ActivateGuns();
+		}
+		else
+		{
+			DeactivateGuns();
+		}
+	}
+
+	void	ActivateGuns()
+	{
+		foreach(GameObject Laser in LaserBeams)
+		{
+			Laser.SetActive(true);
+		}
+	}
+
+	void	DeactivateGuns()
+	{
+		foreach(GameObject Laser in LaserBeams)
+		{
+			Laser.SetActive(false);
+		}
 	}
 }
