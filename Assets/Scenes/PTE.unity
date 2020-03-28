@@ -247,7 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64cc2d631a774eabb9e2b58a242272a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScorePerHit: 12
 --- !u!1 &117191044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013828802630, guid: d39401e2891b1e4439d7839a3a24b3f6,
@@ -269,6 +268,7 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
+  ScorePerHit: 100
 --- !u!1001 &141788623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,6 +371,7 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
+  ScorePerHit: 12
 --- !u!1 &496720451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013828802630, guid: d39401e2891b1e4439d7839a3a24b3f6,
@@ -398,6 +399,7 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
+  ScorePerHit: 12
 --- !u!1 &524487617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5394,6 +5396,14 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 271225684, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 950
+      objectReference: {fileID: 0}
+    - target: {fileID: 271225684, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013772491214, guid: 192b7fe2500f5e0449f21c651bc0474c, type: 3}
       propertyPath: m_Name
       value: Spaceship
@@ -5445,7 +5455,7 @@ PrefabInstance:
     - target: {fileID: 1582050489776229121, guid: 192b7fe2500f5e0449f21c651bc0474c,
         type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1582050489776229121, guid: 192b7fe2500f5e0449f21c651bc0474c,
         type: 3}
@@ -5466,6 +5476,16 @@ PrefabInstance:
         type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582050489776229121, guid: 192b7fe2500f5e0449f21c651bc0474c,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 950
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582050489776229121, guid: 192b7fe2500f5e0449f21c651bc0474c,
+        type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8645596588264492631, guid: 192b7fe2500f5e0449f21c651bc0474c,
         type: 3}
@@ -5725,6 +5745,7 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
+  ScorePerHit: 12
 --- !u!1 &1253205533
 GameObject:
   m_ObjectHideFlags: 0
@@ -5905,6 +5926,7 @@ MonoBehaviour:
   EnemyDeathFX: {fileID: 3882911347260142140, guid: 9645df419e5a9455d95534eca41c7d57,
     type: 3}
   Parent: {fileID: 524487618}
+  ScorePerHit: 12
 --- !u!1 &1706638293
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,10 +5975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
