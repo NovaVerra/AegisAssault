@@ -22,3 +22,5 @@ public class ScoreBoard : MonoBehaviour
 		ScoreText.text = Score.ToString();
 	}
 }
+
+// IMPLEMENTED FEATURE C
