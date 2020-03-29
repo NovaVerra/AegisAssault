@@ -10,28 +10,33 @@ public class PlayerController : MonoBehaviour
 	/** Game Configuration */
 	bool	b_IsControlActive = true;
 	bool	b_IsFiring = true;
+	float	X_Axis, Y_Axis;
 
-	[Header("Speed & Range")]
 	/** Dictates how fast the ship moves based on user input */
-	[Tooltip("in ms^-1")][SerializeField]
-	float	MovementSpeed = 15f;
+	[Header("Speed & Range")]
+		[Tooltip("in ms^-1")] [SerializeField]
+		float	MovementSpeed = 15f;
 
-	/** Range for ship movement relative to camera */
-	[SerializeField] float	X_Range = 10f;
-	[SerializeField] float	Y_Range = 6.5f;
+		/** Range for ship movement relative to camera */
+		[SerializeField]
+		float	X_Range = 10f;
+
+		[SerializeField]
+		float	Y_Range = 6.5f;
 	
 	/** Relationship between ship position and pitch */
 	[Header("Screen Position")]
-	[Tooltip("Relationship between screen position and the pitch/yaw")]
-	[SerializeField] float	PositionPitchFactor = 5f;
-	
-	/** Element that gives the ship a more realistic feeling when pitch/yaw/rolling */
-	[Tooltip("How much input movement affects roll")]
-	[SerializeField] float	InputMovementAmplifier = 25f;
+		[Tooltip("Relationship between screen position and the pitch/yaw")][SerializeField]
+		float	PositionPitchFactor = 5f;
+		
+		/** Element that gives the ship a more realistic feeling when pitch/yaw/rolling */
+		[Tooltip("How much input movement affects roll")][SerializeField]
+		float	InputMovementAmplifier = 25f;
 
-	float	X_Axis, Y_Axis;
 
-	[SerializeField] GameObject[]	LaserBeams;
+	[Header("Bullet Projectile")]
+		[SerializeField]
+		GameObject[]	LaserBeams;
 
 	// Start is called before the first frame update
 	void	Start()

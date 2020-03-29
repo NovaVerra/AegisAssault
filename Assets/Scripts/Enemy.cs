@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 	[SerializeField] Transform	Parent;
 	[SerializeField] int		Hits = 10;
 	[SerializeField] int		ScorePerKill = 12;
+	
 	ScoreBoard	ScoreBoard;
 
 	// Start is called before the first frame update
@@ -22,12 +23,6 @@ public class Enemy : MonoBehaviour
 	{
 		Collider	NonTriggerBoxCollider = gameObject.AddComponent<BoxCollider>();
 		NonTriggerBoxCollider.isTrigger = false;
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 
 	/** turned off collision on RIGHT BEAM */
