@@ -22,3 +22,6 @@ public class ScoreBoard : MonoBehaviour
 		ScoreText.text = Score.ToString();
 	}
 }
+
+// ADDED FEATURE A
+// ADDED FEATURE B
