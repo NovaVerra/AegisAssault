@@ -107,27 +107,20 @@ public class PlayerController : MonoBehaviour
 	{
 		if (CrossPlatformInputManager.GetButton("Fire"))
 		{
-			ActivateGuns();
+			SetGunsActive(true);
 		}
 		else
 		{
-			DeactivateGuns();
+			SetGunsActive(false);
 		}
 	}
 
-	void	ActivateGuns()
+	void	SetGunsActive(bool b_IsActive)
 	{
 		foreach(GameObject Laser in LaserBeams)
 		{
-			Laser.SetActive(true);
-		}
-	}
-
-	void	DeactivateGuns()
-	{
-		foreach(GameObject Laser in LaserBeams)
-		{
-			Laser.SetActive(false);
+			var EmissionModule = Laser.GetComponent<ParticleSystem>().emission;
+			EmissionModule.enabled = b_IsActive;
 		}
 	}
 }
